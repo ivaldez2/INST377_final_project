@@ -32,3 +32,5 @@ function cutMarketList(list){
         return list[index];
     });
 }
+
+document.addEventListener('DOMContentLoaded', async () => mainEvent()); // the async keyword means we can make API requests
