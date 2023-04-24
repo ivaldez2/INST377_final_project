@@ -5,43 +5,33 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ignacio's Labs</title>
+  <title>The Final Project</title>
+  <link rel="stylesheet" href = "style.css"/>
 </head>
 
 <body>
-  <div>
-    <header>
-      <h1>Ignacio's Labs For INST377</h1>
-      <h3>new changes for pull</h3>
-    </header>
-    <div>
-      <div>
-        <h3>Album Names</h3>
-        <ol>
-          <li>Take Care</li>
-          <li>Views</li>
-          <li>Nothing Was The Same</li>
-          <li>Kaleidoscope</li>
-          <li>Perfect Timing</li>
-        </ol>
-      </div>
-      <h3>Image Carousel </h3>
-      <h3> Hi this is my pull request </h3>
-      <div>
-        <img src="images/mochi.gif" />
-        <img src="images/mochi.jpg" />
-        <img src="images/mochi.png" />
-        <img src="images/mochi.svg" />
-      </div>
     </div>
-  </div>
-  <div>Description of images: Mochi is a Japanese rice cake made of mochigome.</div>
-  <footer><a href="http://github.com/ivaldez2/" target="_blank" rel="noopener noreferrer">UMD
-      INST377 github
-      account</a>
-  </footer>
-
+    <div class="container">
+        <div class="left_section box">
+            <h3>Form inputs</h3>
+                <form action="https://data.princegeorgescountymd.gov/resource/sphi-rwax.json" class = "box main_form">
+                  <button type="button" id = "data_load">Load County Data</button>
+                    <div>
+                        <label for="market">Market Name</label>
+                        <input type="text" id="market" name="market"/>
+                    </div>
+                    <button type="button" id="filter_button">Filter Data</button>
+                    <button type="button" id= "generate">Generate List</button>
+                </form>
+            </div>
+            <div class="right_section box">
+                <h3>Local Markets</h3>
+                <div id="map" class="box"></div>
+                <ol class = "box" id = "restaurant_list">
+                    A list of local markets
+                </ol>
+                <div class = "lds-ellipsis" id="data_load_animation"><div></div><div></div><div></div><div></div></div> 
 </body>
-
+<script src = "script.js"></script>
 </html>
 
