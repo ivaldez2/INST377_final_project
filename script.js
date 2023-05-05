@@ -33,10 +33,11 @@ function cutMarketList(list){
     });
 }
 
+
 async function mainEvent() { // the async keyword means we can make API requests
     const mainForm = document.querySelector('.main_form'); // This class name needs to be set on your form before you can listen for an event on it
-    const filterButton = document.querySelector('#filter_button');
     const loadDataButton = document.querySelector('#data_load');
+    const clearDataButton = document.querySelector('#data_clear');
     const generateListButton = document.querySelector('#generate');
     const textField = document.querySelector('#market');
 
@@ -44,14 +45,25 @@ async function mainEvent() { // the async keyword means we can make API requests
     loadAnimation.style.display = 'none';
     generateListButton.classList.add('hidden');
 
-    let storedList = [];
-    let currentList = []; // this is "scoped" to the main event function
 
+    const storedData = localStorage.getItem('storedData');
+    let parsedData = JSON.parse(storedData);
+    if (parsedData?.length > 0) {
+        generateListButton.classList.remove('hidden');
+    }
+
+    let currentList = []; // this is "scoped" to the main event function
+    
     /* We need to listen to an "event" to have something happen in our page - here we're listening for a "submit" */
     loadDataButton.addEventListener("click", async (submitEvent) => {
-        
-        console.log("Loading data");
-        loadAnimation.style.display = "inline-block";
+      // async has to be declared on every function that needs to "await" something
+
+      // This prevents your page from becoming a list of 1000 records from the county, even if your form still has an action set on it
+      //submitEvent.preventDefault();
+
+      // this is substituting for a "breakpoint" - it prints to the browser to tell us we successfully submitted the form
+      console.log("Loading data");
+      loadAnimation.style.display = "inline-block";
 
 
         // Basic GET request - this replaces the form Action
@@ -60,32 +72,20 @@ async function mainEvent() { // the async keyword means we can make API requests
         );
 
         // This changes the response from the GET into data we can use - an "object"
-        storedList = await results.json();
-        if (storedList.length > 0) {
-            generateListButton.classList.remove("hidden");
-        }
+        const storedList = await results.json();
+        localStorage.setItem('storedData', JSON.stringify(storedList));
+        parsedData = storedList;
+  
+        if (parsedData?.length > 0) {
+          generateListButton.classList.remove('hidden');
+      }
         loadAnimation.style.display = "none";
-
-
-  console.table(storedList);
-});
-
-filterButton.addEventListener('click',(event) => {
-console.log('clicked FilterButton');
-
-const formData = new FormData(mainForm);
-const formProps = Object.fromEntries(formData);
-
-console.log(formProps);
-const newList = filterList(currentList, formProps.market);
-console.log(newList);
-injectHTML(newList);
 });
 
 
 generateListButton.addEventListener('click',(event) =>{
   console.log('generate new list');
-  currentList = cutMarketList(storedList);
+  currentList = cutMarketList(parsedData);
   console.log(currentList);
   injectHTML(currentList);
 })
