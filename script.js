@@ -33,6 +33,34 @@ function cutMarketList(list){
     });
 }
 
+function initMap(){
+    //38.9072° N, 77.0369° W
+    const carto = L.map('map').setView([38.98, -76.93], 9);
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(carto);
+    return carto;
+
+
+  }
+
+  function markerPlace(array, map){
+    console.log('array for markers',array);
+
+    map.eachLayer((layer) => {
+        if (layer instanceof L.Marker) {
+          layer.remove();
+        }
+      });
+
+    array.forEach((item) =>{
+        console.log('markerPlace',item);
+        const { latitude, longitude } = item.location;
+        L.marker([latitude, longitude]).addTo(map);
+    })
+
+  }
 
 async function mainEvent() { // the async keyword means we can make API requests
     const mainForm = document.querySelector('.main_form'); // This class name needs to be set on your form before you can listen for an event on it
@@ -44,6 +72,8 @@ async function mainEvent() { // the async keyword means we can make API requests
     const loadAnimation = document.querySelector('#data_load_animation');
     loadAnimation.style.display = 'none';
     generateListButton.classList.add('hidden');
+    
+    const carto = initMap();
 
 
     const storedData = localStorage.getItem('storedData');
@@ -88,6 +118,7 @@ generateListButton.addEventListener('click',(event) =>{
   currentList = cutMarketList(parsedData);
   console.log(currentList);
   injectHTML(currentList);
+  markerPlace(currentList, carto);
 })
 
 textField.addEventListener('input', (event) => {
@@ -95,6 +126,7 @@ textField.addEventListener('input', (event) => {
     const newList = filterList(currentList, event.target.value);
     console.log(newList);
     injectHTML(newList);
+    markerPlace(newList, carto);
 })
 }
 
