@@ -10,7 +10,7 @@ function getRandomIntInclusive(min,max){
     target.innerHTML = '';
     list.forEach((item) => {
         const str = `<li><a href="${item.website}" target="_blank">${item.market_name}</a>/
-        Dates: (${item.season1_date}) meat? (${item.meat}) seafood? (${item.seafood})</li>`;
+        Dates: (${item.season1_date}) meat? (${item.meat}) seafood? (${item.seafood}) poultry? (${item.poultry})</li>`;
         //const str = `<li>${item.market_name}</li>`;
         target.innerHTML += str;
     });
