@@ -3,7 +3,6 @@
 ### Github Pages link: https://ivaldez2.github.io/INST377_final_project/
 
 ### Description
-- This website provides information about farmer markets in the county.
 - The website can be used on either desktop or mobile browsers. My partner has Macbook Pro and I use a Windows PC. Current chrome version: Version 113.0.5672.92 (Official Build) (64-bit)
 - The API that was used: https://data.princegeorgescountymd.gov/resource/sphi-rwax.json
 - The visualization that we included is the interactive map from leaflet.js.
