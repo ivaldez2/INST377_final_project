@@ -1,4 +1,4 @@
-# INST377_final_project by Sumaya and Ignacio
+# INST377 Final Poject by Sumaya and Ignacio
 
 ### Github Pages link: https://ivaldez2.github.io/INST377_final_project/
 
