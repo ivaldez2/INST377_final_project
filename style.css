@@ -59,6 +59,7 @@ button {
   padding: 5px;
   border: 2px solid #353434;
   text-align: center;
+  background-color: #457a92;
 }
 
 .description {
@@ -86,7 +87,7 @@ button {
 }
 
 .left_section {
-  background-color: rgba(9, 207, 174, 0.8);
+  background-color: #457a92;
   flex: 0 1 auto;
   margin: 1rem;
   border: 2px solid #353434;
@@ -94,7 +95,7 @@ button {
 }
 
 .right_section {
-  background-color: rgba(173, 15, 187, 0.7);
+  background-color: #457a92;
   flex: 1 2 auto;
   margin: 1rem auto;
   align-items: center;
