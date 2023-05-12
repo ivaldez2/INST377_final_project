@@ -1,4 +1,7 @@
-# INST377 Farmer Market Locator by Sumaya Shameem and Ignacio Valdez
+# INST377 Farmer Market Locator
+
+## Collaborators
+- Sumaya Shameem and Ignacio Valdez
 
 ### Github Pages link: https://ivaldez2.github.io/INST377_final_project/
 
