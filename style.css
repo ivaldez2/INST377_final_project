@@ -32,6 +32,16 @@ body {
   text-align: center;
 }
 
+.button-container {
+  margin-top: 20px;
+}
+
+img {
+  max-width: 60%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
 
 button {
   background-color: #4CAF50;
