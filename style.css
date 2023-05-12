@@ -98,12 +98,12 @@ button {
   flex: 1 2 auto;
   margin: 1rem auto;
   align-items: center;
-  max-width: 800px;
+  max-width: 1000px;
   border: 2px solid #353434;
   justify-content: center;
   display: flex;
   flex-direction: column;
-  height: 90%;
+  height: 100%;
 }
 
 .container {
